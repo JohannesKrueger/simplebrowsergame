@@ -1,0 +1,24 @@
+{
+  "name": "snowball-fight-mog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^2.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasilvacontin/snowball-fight-mog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dasilvacontin/snowball-fight-mog/issues"
+  },
+  "homepage": "https://github.com/dasilvacontin/snowball-fight-mog#readme"
+}
