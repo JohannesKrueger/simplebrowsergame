@@ -1,5 +1,5 @@
 {
-  "name": "snowball-fight-mog",
+  "name": "simplebrowsergame",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,13 +12,12 @@
     "start": "node server.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dasilvacontin/snowball-fight-mog.git"
+    "type": "git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dasilvacontin/snowball-fight-mog/issues"
+    "url": "https://jksd.de/game"
   },
-  "homepage": "https://github.com/dasilvacontin/snowball-fight-mog#readme"
+  "homepage": "https://jksd.de"
 }
