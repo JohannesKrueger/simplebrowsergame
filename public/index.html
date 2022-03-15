@@ -89,6 +89,8 @@ function renderAvatar (player) {
 }
 
 function renderProjectile (projectile) {
+    if (player.eliminated) return
+    
     ctx.save()
     ctx.translate(projectile.x, projectile.y)
 
@@ -199,7 +201,6 @@ function logicStep (state) {
                     if (playerB.playerId === myPlayerId) {
                         // others must remove themselves
                         playerB.eliminated = true
-                        keyboardState[e.key] = false
                         prompt("Du wurdest eliminiert.")
                     }
                 }
