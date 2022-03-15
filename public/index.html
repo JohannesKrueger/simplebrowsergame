@@ -122,20 +122,14 @@ const gameState = {
 
 const myPlayerId = gameState.players[0].playerId
 
-function render (state, player) {
-    if (player.eliminated) return
-     
+function render (state) {
     ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     state.players.forEach(function (player) {
-        if (player.eliminated) return
-        
         renderAvatar(player)
 
-        player.projectiles.forEach(function (projectile, player) {
-            if (player.eliminated) return
-            
+        player.projectiles.forEach(function (projectile) {            
             renderProjectile(projectile)
         })
     })
