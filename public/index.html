@@ -197,7 +197,7 @@ function logicStep (state) {
                 }
 
                 if (hitTestPlayerVsProjectile(playerB, projectile)) {
-                    if (!(player.eliminated)) {
+                    if (!(playerB.eliminated)) {
                     projectile.remove = true
                     }
                     if (playerB.playerId === myPlayerId) {
