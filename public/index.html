@@ -40,6 +40,7 @@ const ctx = canvas.getContext('2d')
 const keyboardState = {}
 
 function renderAvatar (player) {
+    if (player.eliminated) return
 
     ctx.save()
     ctx.translate(player.x, player.y)
@@ -123,19 +124,13 @@ const gameState = {
 const myPlayerId = gameState.players[0].playerId
 
 function render (state) {
-    if (player.eliminated) return
-     
     ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     state.players.forEach(function (player) {
-        if (player.eliminated) return
-        
         renderAvatar(player)
 
         player.projectiles.forEach(function (projectile) {
-            if (player.eliminated) return
-            
             renderProjectile(projectile)
         })
     })
@@ -153,7 +148,6 @@ function hitTestPlayerVsProjectile (player, projectile) {
 }
 
 function logicStep (state) {
-    if (player.eliminated) return
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
             projectile.x += projectile.vx
@@ -205,6 +199,7 @@ function logicStep (state) {
                     if (playerB.playerId === myPlayerId) {
                         // others must remove themselves
                         playerB.eliminated = true
+                        keyboardState[e.key] = false
                         prompt("Du wurdest eliminiert.")
                     }
                 }
