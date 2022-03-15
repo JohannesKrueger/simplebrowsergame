@@ -15,7 +15,7 @@ Was wir noch hinzufügen wollen:
 - Punkteanzeige
 - weitere Texturen für Spielfigur und Spieloberfläche (Tim ist krank)
 
-More Fixesand Bugs:
+More Fixes and Bugs:
 
 
 Ingame Backgrund img
@@ -46,6 +46,6 @@ Tod
 
 Fix Screen resolution (Map size,- Player Speed, Bulletspeed)
 
-Clear Screen from Dead Player (remove shooting and player-hitbox(collisions))
+Clear Screen from Dead Player (remove shooting and player-hitbox(collisions)) "Collisions fixed"
 
 Fix Multipleplayer Errors (Playercount > 2 –> Networking Errors)
