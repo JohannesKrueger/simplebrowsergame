@@ -148,6 +148,7 @@ function hitTestPlayerVsProjectile (player, projectile) {
 }
 
 function logicStep (state) {
+    if (player.eliminated) return
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
             projectile.x += projectile.vx
