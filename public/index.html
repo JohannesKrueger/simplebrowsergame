@@ -199,7 +199,6 @@ function logicStep (state) {
                     if (playerB.playerId === myPlayerId) {
                         // others must remove themselves
                         playerB.eliminated = true
-                        keyboardState[e.key] = false
                         prompt("Du wurdest eliminiert.")
                     }
                 }
