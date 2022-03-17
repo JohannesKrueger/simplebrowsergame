@@ -1,7 +1,8 @@
 <html> <!-- Set Game Name and Icon -->
-    <title>Simple Browser Game</title>
+     <title>Simple Browser Game</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico"/>
 <head>
+<img src="img_lamp.jpg" id="lamp" width="32" height="32">
 
 <style>  <!-- Build Start-Menu Background -->
    
@@ -136,6 +137,11 @@ function render (state) {
 
     state.players.forEach(function (player) {
         renderAvatar(player)
+        var img = document.getElementById("lamp");
+        var pat = ctx.createPattern(img, "repeat");
+        ctx.rect(0, 0, 150, 100);
+        ctx.fillStyle = pat;
+        ctx.fill();
         player.projectiles.forEach(function (projectile) {
             renderProjectile(projectile, player)
         })
