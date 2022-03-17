@@ -137,10 +137,6 @@ function render (state) {
 
     state.players.forEach(function (player) {
         renderAvatar(player)
-        var img = document.getElementById("lamp");
-        var pat = ctx.createPattern(img, "repeat");
-        ctx.rect(0, 0, 150, 100);
-        ctx.fillStyle = pat;
         player.projectiles.forEach(function (projectile) {
             renderProjectile(projectile, player)
         })
