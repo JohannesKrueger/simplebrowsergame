@@ -17,6 +17,10 @@
         height: 100%;
         border: 1px solid black;
     }
+     
+    body {
+        background-image: url('assets/img/bg.png');
+    }
 
 </style>
 
@@ -35,29 +39,6 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
 const ctx = canvas.getContext('2d')
-
-
-const MARIO_WIDTH = 32;
-const MARIO_HEIGHT = 39;
-const mario = new Image();
-mario.src = 'assets/img/bg.png';
-mario.onload = () => {
-ctx.drawImage(
-    // Image
-    mario,
-    // ---- Selection ----
-    0, // sx
-    MARIO_HEIGHT * 2, // sy
-    MARIO_WIDTH, // sWidth
-    MARIO_HEIGHT, // sHeight
-    // ---- Drawing ----
-    0, // dx
-    0, // dy
-    MARIO_WIDTH, // dWidth
-    MARIO_HEIGHT // dHeight
-  );
-};
-
 
 // ctx.fillRect(50, 50, 100, 100)
 
