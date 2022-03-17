@@ -141,7 +141,6 @@ function render (state) {
         var pat = ctx.createPattern(img, "repeat");
         ctx.rect(0, 0, 150, 100);
         ctx.fillStyle = pat;
-        ctx.fill();
         player.projectiles.forEach(function (projectile) {
             renderProjectile(projectile, player)
         })
