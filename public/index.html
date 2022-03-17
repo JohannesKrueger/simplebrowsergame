@@ -17,17 +17,13 @@
         height: 100%;
         border: 1px solid black;
     }
-     
-    body {
-        background-image: url('assets/img/frame.png');
-    }
 
 </style>
 
 </head>
 <body>
 
-<canvas"></canvas>
+<canvas></canvas>
 
 <script src="/socket.io/socket.io.js"></script>
 <script>
@@ -39,7 +35,6 @@ canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
 const ctx = canvas.getContext('2d')
-
 // ctx.fillRect(50, 50, 100, 100)
 
 const keyboardState = {}
@@ -131,11 +126,12 @@ const gameState = {
 const myPlayerId = gameState.players[0].playerId
 
 function render (state) {
-    
+    ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
     state.players.forEach(function (player) {
         renderAvatar(player)
+
         player.projectiles.forEach(function (projectile) {
             renderProjectile(projectile, player)
         })
