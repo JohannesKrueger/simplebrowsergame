@@ -161,16 +161,10 @@ JoyStick.prototype.__create_fullscreen_div = function()
 		self.control.style.top = self.y - self.inner_radius + 'px';
 		self.control.style.left = self.x - self.inner_radius + 'px';
 	}
+	this.bind( 'touchmove', touch_hander );
+	this.bind( 'touchstart', touch_hander );
+	this.bind( 'touchend', clear_flags );
 
-	if ( this.mouse_support )
-	{
-		this.bind( 'touchmove', touch_hander );
-		this.bind( 'touchstart', touch_hander );
-		this.bind( 'touchend', clear_flags );
-		this.bind( 'mousedown', touch_hander );
-		this.bind( 'mousemove', touch_hander );
-		this.bind( 'mouseup', clear_flags );
-	}
 };
 JoyStick.prototype.bind = function( evt, func )
 {
