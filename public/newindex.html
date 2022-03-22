@@ -29,37 +29,10 @@
 </head>
 <body>
 
-<div id="status">
-		</div>	
-
 <canvas></canvas>
 
-<script type="text/javascript" src="joystick.js"></script> 
 <script src="/socket.io/socket.io.js"></script>
-<script>
-
-	window.addEventListener("load", function(){
-	var joystick = new JoyStick({
-		radius: 80,
-		x: window.innerWidth /10,
-		y: window.innerHeight /1.25,
-		inner_radius: 70
-	});
-			
-	var status = document.getElementById('status');
-	function run_all_time(){
-		var text = '';
-		if ( joystick.up ) text += 'up ';
-		if ( joystick.down ) text += 'down ';
-		if ( joystick.left ) text += 'left ';
-		if ( joystick.right ) text += 'right';
-				
-		status.innerHTML = text;
-		requestAnimationFrame( run_all_time );
-	}
-run_all_time();
-});
-	
+<script>	
 const socket = io()
 
 const canvas = document.getElementsByTagName('canvas')[0]
