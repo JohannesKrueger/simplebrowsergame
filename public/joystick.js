@@ -136,7 +136,7 @@ JoyStick.prototype.__create_fullscreen_div = function()
 	// to captures fast movements
 	function touch_hander( evt )
 	{
-		var touch_obj = evt.changedTouches ? evt.changedTouches[0] : evt;
+		var touch_obj = evt.changedTouches || evt.changedTouches[0] : evt;
 		if ( self.mouse_support && !(touch_obj.buttons === 1) )
 		{
 			return;
