@@ -49,10 +49,14 @@
 	var status = document.getElementById('status');
 	function run_all_time(){
 		var text = '';
-		if ( joystick.up ) text += 'up ';
+		if ( joystick.up ) {text += 'up ';
+			}
 		if ( joystick.down ) text += 'down ';
+			}
 		if ( joystick.left ) text += 'left ';
+			}
 		if ( joystick.right ) text += 'right';
+			}
 				
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
