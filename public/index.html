@@ -247,6 +247,8 @@ run_all_time();
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
 	}
+	const sleep = require("@helper-modules/sleep");
+	await sleep(2000);
 	run_all_time();
 });
 
