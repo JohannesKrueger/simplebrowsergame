@@ -208,22 +208,22 @@ function logicStep (state) {
 	var status = document.getElementById('status');
 	function run_all_time(){
 		var text = '';
-		if ( joystick.up ) {
+		if ( joystick.up && state.players[0].y > 50) {
 			text += 'up ';
 			myPlayer.y -= PLAYER_SPEED;
             		myPlayer.rotation = FACING_UP;
 		}
-		if ( joystick.down ) {
+		if ( joystick.down && state.players[0].y < screen.height - 150) {
 			text += 'down ';
 			myPlayer.y += PLAYER_SPEED;
             		myPlayer.rotation = FACING_DOWN;
 		}
-		if ( joystick.left ) {
+		if ( joystick.left && state.players[0].x > 50) {
 			text += 'left ';
 			state.players[0].x -= PLAYER_SPEED;
             		myPlayer.rotation = FACING_LEFT;
 		}
-		if ( joystick.right ) {
+		if ( joystick.right && state.players[0].x < screen.width - 50) {
 			text += 'right';
 			state.players[0].x += PLAYER_SPEED;
             		myPlayer.rotation = FACING_RIGHT;
