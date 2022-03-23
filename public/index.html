@@ -223,7 +223,7 @@ run_all_time();
 	var status = document.getElementById('status');
 	function run_all_time(){
 		var text = '';
-		if ( mobile_shooting_joystick.up || mobile_shooting_joystick.down || mobile_shooting_joystick.left || mobile_shooting_joystick.right && myPlayer.projectiles.length <= 1) {
+		if ( myPlayer.projectiles.length <= 1 && mobile_shooting_joystick.up || mobile_shooting_joystick.down || mobile_shooting_joystick.left || mobile_shooting_joystick.right ) {
 				const myPlayer = gameState.players[0]
 				const projectile = {
 				    x: myPlayer.x, y: myPlayer.y,
