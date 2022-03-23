@@ -31,7 +31,10 @@
 
 <div id="status">
 		</div>	
-<canvas></canvas>
+<div>
+	<canvas></canvas>
+</div>
+<button style="z-index: 6; position: sticky; right: 10%; bottom: 10%" onclick="shoot_projectile_onclick()">Shoot </button>
 	
 <script type="text/javascript" src="joystick.js"></script> 
 <script src="/socket.io/socket.io.js"></script>
@@ -354,5 +357,5 @@ socket.on('stateUpdateForwardedByServer', function (player) {
 </script>
 	
 </body>
-<button style="z-index: 6; position: sticky; right: 10%; bottom: 10%" onclick="shoot_projectile_onclick()">Shoot </button>
+
 </html>
