@@ -243,15 +243,19 @@ run_all_time();
 				switch (myPlayer.rotation) {
 				    case FACING_DOWN: 
 					projectile.vy = PROJECTILE_SPEED
+					sleep_function();
 					break
 				    case FACING_UP:
 					projectile.vy = -PROJECTILE_SPEED
+					sleep_function();
 					break
 				    case FACING_LEFT:
 					projectile.vx = -PROJECTILE_SPEED
+					sleep_function();
 					break
 				    case FACING_RIGHT:
 					projectile.vx = +PROJECTILE_SPEED
+					sleep_function();
 					break
 				}
 				myPlayer.projectiles.push(projectile)
@@ -259,7 +263,6 @@ run_all_time();
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
 	}
-	sleep_function();
 	run_all_time();
 });
 
