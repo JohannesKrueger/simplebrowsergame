@@ -51,23 +51,23 @@
 		var text = '';
 		if ( joystick.up ) {
 			text += 'up ';
-			myPlayer.y -= PLAYER_SPEED;
-            		myPlayer.rotation = FACING_UP;
+			// myPlayer.y -= PLAYER_SPEED;
+            		// myPlayer.rotation = FACING_UP;
 		}
 		if ( joystick.down ) {
 			text += 'down ';
-			myPlayer.y += PLAYER_SPEED;
-            		myPlayer.rotation = FACING_DOWN;
+			// myPlayer.y += PLAYER_SPEED;
+            		// myPlayer.rotation = FACING_DOWN;
 		}
 		if ( joystick.left ) {
 			text += 'left ';
-			state.players[0].x += PLAYER_SPEED;
-            		myPlayer.rotation = FACING_RIGHT;
+			// state.players[0].x += PLAYER_SPEED;
+            		// myPlayer.rotation = FACING_RIGHT;
 		}
 		if ( joystick.right ) {
 			text += 'right';
-			state.players[0].x -= PLAYER_SPEED;
-            		myPlayer.rotation = FACING_LEFT;
+			// state.players[0].x -= PLAYER_SPEED;
+            		// myPlayer.rotation = FACING_LEFT;
 		}
 				
 		status.innerHTML = text;
