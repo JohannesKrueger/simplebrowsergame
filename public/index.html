@@ -196,6 +196,45 @@ function logicStep (state) {
         }
     }
 
+	window.addEventListener("load", function(){
+	var joystick = new JoyStick({
+		radius: 80,
+		x: window.innerWidth /10,
+		y: window.innerHeight /1.25,
+		inner_radius: 70
+	});
+			
+	const myPlayer = state.players[0]
+	var status = document.getElementById('status');
+	function run_all_time(){
+		var text = '';
+		if ( joystick.up ) {
+			text += 'up ';
+			myPlayer.y -= PLAYER_SPEED;
+            		myPlayer.rotation = FACING_UP;
+		}
+		if ( joystick.down ) {
+			text += 'down ';
+			myPlayer.y += PLAYER_SPEED;
+            		myPlayer.rotation = FACING_DOWN;
+		}
+		if ( joystick.left ) {
+			text += 'left ';
+			state.players[0].x += PLAYER_SPEED;
+            		myPlayer.rotation = FACING_RIGHT;
+		}
+		if ( joystick.right ) {
+			text += 'right';
+			state.players[0].x -= PLAYER_SPEED;
+            		myPlayer.rotation = FACING_LEFT;
+		}
+				
+		status.innerHTML = text;
+		requestAnimationFrame( run_all_time );
+	}
+run_all_time();
+});	
+	
     // collision algorithm
     state.players.forEach(playerA => {
         playerA.projectiles.forEach(projectile => {
@@ -266,44 +305,6 @@ document.addEventListener('keydown', function (e) {
 document.addEventListener('keyup', function (e) {
     keyboardState[e.key] = false
 })
-
-	window.addEventListener("load", function(){
-	var joystick = new JoyStick({
-		radius: 80,
-		x: window.innerWidth /10,
-		y: window.innerHeight /1.25,
-		inner_radius: 70
-	});
-			
-	var status = document.getElementById('status');
-	function run_all_time(){
-		var text = '';
-		if ( joystick.up ) {
-			text += 'up ';
-			// myPlayer.y -= PLAYER_SPEED;
-            		// myPlayer.rotation = FACING_UP;
-		}
-		if ( joystick.down ) {
-			text += 'down ';
-			// myPlayer.y += PLAYER_SPEED;
-            		// myPlayer.rotation = FACING_DOWN;
-		}
-		if ( joystick.left ) {
-			text += 'left ';
-			// state.players[0].x += PLAYER_SPEED;
-            		// myPlayer.rotation = FACING_RIGHT;
-		}
-		if ( joystick.right ) {
-			text += 'right';
-			// state.players[0].x -= PLAYER_SPEED;
-            		// myPlayer.rotation = FACING_LEFT;
-		}
-				
-		status.innerHTML = text;
-		requestAnimationFrame( run_all_time );
-	}
-run_all_time();
-});
 
 socket.on('stateUpdateForwardedByServer', function (player) {
     if (player.playerId === myPlayerId) {
