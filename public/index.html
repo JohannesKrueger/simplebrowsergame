@@ -220,13 +220,13 @@ function logicStep (state) {
 		}
 		if ( joystick.left ) {
 			text += 'left ';
-			state.players[0].x += PLAYER_SPEED;
-            		myPlayer.rotation = FACING_RIGHT;
+			state.players[0].x -= PLAYER_SPEED;
+            		myPlayer.rotation = FACING_LEFT;
 		}
 		if ( joystick.right ) {
 			text += 'right';
-			state.players[0].x -= PLAYER_SPEED;
-            		myPlayer.rotation = FACING_LEFT;
+			state.players[0].x += PLAYER_SPEED;
+            		myPlayer.rotation = FACING_RIGHT;
 		}
 				
 		status.innerHTML = text;
