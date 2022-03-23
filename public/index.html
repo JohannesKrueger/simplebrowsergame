@@ -226,25 +226,24 @@ run_all_time();
 		if ( mobile_shooting_joystick.up || mobile_shooting_joystick.down || mobile_shooting_joystick.left || mobile_shooting_joystick.right ) {
 				const myPlayer = gameState.players[0]
 				if (myPlayer.projectiles.length <= 1 ) {
-					break
-				}
-				const projectile = {
-				    x: myPlayer.x, y: myPlayer.y,
-				    vx: 0, vy: 0
-				}
-				switch (myPlayer.rotation) {
-				    case FACING_DOWN: 
-					projectile.vy = PROJECTILE_SPEED
-					break
-				    case FACING_UP:
-					projectile.vy = -PROJECTILE_SPEED
-					break
-				    case FACING_LEFT:
-					projectile.vx = -PROJECTILE_SPEED
-					break
-				    case FACING_RIGHT:
-					projectile.vx = +PROJECTILE_SPEED
-					break
+					const projectile = {
+					    x: myPlayer.x, y: myPlayer.y,
+					    vx: 0, vy: 0
+					}
+					switch (myPlayer.rotation) {
+					    case FACING_DOWN: 
+						projectile.vy = PROJECTILE_SPEED
+						break
+					    case FACING_UP:
+						projectile.vy = -PROJECTILE_SPEED
+						break
+					    case FACING_LEFT:
+						projectile.vx = -PROJECTILE_SPEED
+						break
+					    case FACING_RIGHT:
+						projectile.vx = +PROJECTILE_SPEED
+						break
+					}
 				}
 				myPlayer.projectiles.push(projectile)
 		}
