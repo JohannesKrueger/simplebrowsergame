@@ -236,7 +236,37 @@ function logicStep (state) {
 	}
 run_all_time();
 });	
-	
+
+
+	window.addEventListener("load", function(){
+	var mobile_shooting_joystick = new JoyStick({
+		radius: 80,
+		x: window.innerWidth / 2,
+		y: window.innerHeight /2,
+		inner_radius: 70
+	});
+			
+	var status = document.getElementById('status');
+	function run_all_time(){
+		if ( mobile_shooting_joystick.up ) {
+			shoot_projectile_onclick();
+		}
+		if ( mobile_shooting_joystick.down ) {
+			shoot_projectile_onclick();
+		}
+		if ( mobile_shooting_joystick.left ) {
+			shoot_projectile_onclick();
+		}
+		if ( mobile_shooting_joystick.right ) {
+			shoot_projectile_onclick();
+		}
+				
+		status.innerHTML = text;
+		requestAnimationFrame( run_all_time );
+	}
+	run_all_time();
+});
+
     // collision algorithm
     state.players.forEach(playerA => {
         playerA.projectiles.forEach(projectile => {
