@@ -2,14 +2,12 @@
      <title>Simple Browser Game</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico"/>
 <head>
-
 <style>  <!-- Build Start-Menu Background -->
    
     html, body {
         padding: 0;
         margin: 0;
     }
-
     canvas {
         background-image: url('assets/img/background_menu.jpg');
         background-size: cover;
@@ -25,11 +23,9 @@
     }
      
 </style>
-
      
 </head>
 <body>
-
 <div id="status">
 		</div>	
 	
@@ -39,35 +35,27 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>	
 const socket = io()
-
 const canvas = document.getElementsByTagName('canvas')[0]
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
-
 const ctx = canvas.getContext('2d')
 // ctx.fillRect(50, 50, 100, 100)
-
 const keyboardState = {}
-
 function renderAvatar (player) {
     if (player.eliminated) return
-
     ctx.save()
     ctx.translate(player.x, player.y)
-
     // draw body
     ctx.beginPath()
     ctx.arc(0, 0, 20, 0, 2 * Math.PI)
     ctx.closePath()
     ctx.fillStyle = player.color
     ctx.fill()
-
     // draw username
     ctx.textAlign = 'center'
     ctx.fillStyle = 'black'
     ctx.font = '30px serif';
     ctx.fillText(player.username, 0, -40)
-
     // draw eyes
     // rotate here prior to drawing the eyes,
     // to make the eyes face that the avatar should have
@@ -94,32 +82,26 @@ function renderAvatar (player) {
     ctx.lineWidth = 10
     ctx.strokeStyle = '#5f6369';
     ctx.stroke()
-
     ctx.restore()
 }
-
 function renderProjectile (projectile, player) {
     if (player.eliminated) return
     
     ctx.save()
     ctx.translate(projectile.x, projectile.y)
-
     ctx.beginPath()
     ctx.arc(0, 0, 8, 0, 2 * Math.PI)
     ctx.closePath()
     ctx.fillStyle = '#0c0c0c'
     ctx.fill()
-
     ctx.restore()
 }
-
 const PROJECTILE_SPEED = 7
 const PLAYER_SPEED = 3
 const FACING_UP = 2
 const FACING_DOWN = 0
 const FACING_LEFT = 1
 const FACING_RIGHT = 3
-
 const gameState = {
     players: [
         {   
@@ -132,46 +114,30 @@ const gameState = {
         }
     ]
 }
-
 const myPlayerId = gameState.players[0].playerId
-
 function render (state) {
     ctx.fillStyle = 'white'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
-
     state.players.forEach(function (player) {
         renderAvatar(player)
-
         player.projectiles.forEach(function (projectile) {
             renderProjectile(projectile, player)
         })
     })
-
 }
-
 const PLAYER_RADIUS = 20
 const PROJECTILE_RADIUS = 8
-
 function hitTestPlayerVsPlayer (playerA, playerB) {
     return Math.sqrt(Math.pow(playerA.x - playerB.x, 2) + Math.pow(playerA.y - playerB.y, 2)) < (PLAYER_RADIUS * 2)
 }
 function hitTestPlayerVsProjectile (player, projectile) {
     return Math.sqrt(Math.pow(player.x - projectile.x, 2) + Math.pow(player.y - projectile.y, 2)) < (PLAYER_RADIUS + PROJECTILE_RADIUS)
 }
-// mobile shooting
-function shoot_projectile_onclick() {
-	const myPlayer = gameState.players[0]
-        const projectile = {
-            x: myPlayer.x, y: myPlayer.y,
-            vx: 0, vy: 0
-        }
-	
 function logicStep (state) {
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
             projectile.x += projectile.vx
             projectile.y += projectile.vy
-
             if (projectile.x < 0 || projectile.x > window.innerWidth ||
                 projectile.y < 0 || projectile.y > window.innerHeight) {
                 projectile.remove = true
@@ -182,7 +148,6 @@ function logicStep (state) {
             return shouldBeKept
         })
     })
-
     // only moving player one now and setting border to screen width,-height
     const myPlayer = state.players[0]
     if (!myPlayer.eliminated) {
@@ -245,6 +210,7 @@ run_all_time();
 });	
 
 
+
 	window.addEventListener("load", function(){
 	var mobile_shooting_joystick = new JoyStick({
 		radius: 80,
@@ -252,7 +218,7 @@ run_all_time();
 		y: window.innerHeight /2,
 		inner_radius: 70
 	});
-			
+
 	var status = document.getElementById('status');
 	function run_all_time(){
 		if ( mobile_shooting_joystick.up ) {
@@ -267,7 +233,7 @@ run_all_time();
 		if ( mobile_shooting_joystick.right ) {
 			shoot_projectile_onclick();
 		}
-				
+
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
 	}
@@ -282,7 +248,6 @@ run_all_time();
                     // don't hit yourself
                     return
                 }
-
                 if (hitTestPlayerVsProjectile(playerB, projectile)) {
                     if (!(playerB.eliminated)) {
                     projectile.remove = true
@@ -296,33 +261,24 @@ run_all_time();
             })
         })
     })
-
     // remove eliminated players
     // state.players = state.players.filter(player => !player.eliminated)
-
     socket.emit('stateUpdate', state.players[0])
 }
-
 function gameLoop () {
     requestAnimationFrame(gameLoop)
     logicStep(gameState)
     render(gameState)
 }
-
 gameLoop()
-
-
 document.addEventListener('keydown', function (e) {
     keyboardState[e.key] = true
-
     if (e.key === ' ') { // spacebar lol
-
         const myPlayer = gameState.players[0]
         const projectile = {
             x: myPlayer.x, y: myPlayer.y,
             vx: 0, vy: 0
         }
-
         switch (myPlayer.rotation) {
             case FACING_DOWN: 
                 projectile.vy = PROJECTILE_SPEED
@@ -337,11 +293,16 @@ document.addEventListener('keydown', function (e) {
                 projectile.vx = +PROJECTILE_SPEED
                 break
         }
-
         myPlayer.projectiles.push(projectile)
     }
 })
 	
+function shoot_projectile_onclick() {
+	const myPlayer = gameState.players[0]
+        const projectile = {
+            x: myPlayer.x, y: myPlayer.y,
+            vx: 0, vy: 0
+        }
         switch (myPlayer.rotation) {
             case FACING_DOWN: 
                 projectile.vy = PROJECTILE_SPEED
@@ -356,20 +317,16 @@ document.addEventListener('keydown', function (e) {
                 projectile.vx = +PROJECTILE_SPEED
                 break
         }
-
         myPlayer.projectiles.push(projectile)
 }
-
 document.addEventListener('keyup', function (e) {
     keyboardState[e.key] = false
 })
-
 socket.on('stateUpdateForwardedByServer', function (player) {
     if (player.playerId === myPlayerId) {
         // ignore own update
         return
     }
-
     let playerWasFound = false
     for (let i = 0; i < gameState.players.length; ++i) {
         if (gameState.players[i].playerId === player.playerId) {
@@ -378,7 +335,6 @@ socket.on('stateUpdateForwardedByServer', function (player) {
             break // don't continue looping, pointless
         }
     }
-
     if (!playerWasFound) {
         // player we haven't seen before
         gameState.players.push(player)
@@ -387,5 +343,4 @@ socket.on('stateUpdateForwardedByServer', function (player) {
 </script>
 	
 </body>
-
 </html>
