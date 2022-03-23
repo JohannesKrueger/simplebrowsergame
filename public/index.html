@@ -244,8 +244,8 @@ run_all_time();
 						projectile.vx = +PROJECTILE_SPEED
 						break
 					}
+					myPlayer.projectiles.push(projectile)
 				}
-				myPlayer.projectiles.push(projectile)
 		}
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
