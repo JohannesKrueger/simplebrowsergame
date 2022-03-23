@@ -158,7 +158,14 @@ function hitTestPlayerVsPlayer (playerA, playerB) {
 function hitTestPlayerVsProjectile (player, projectile) {
     return Math.sqrt(Math.pow(player.x - projectile.x, 2) + Math.pow(player.y - projectile.y, 2)) < (PLAYER_RADIUS + PROJECTILE_RADIUS)
 }
-
+// mobile shooting
+function shoot_projectile_onclick() {
+	const myPlayer = gameState.players[0]
+        const projectile = {
+            x: myPlayer.x, y: myPlayer.y,
+            vx: 0, vy: 0
+        }
+	
 function logicStep (state) {
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
@@ -335,13 +342,6 @@ document.addEventListener('keydown', function (e) {
     }
 })
 	
-function shoot_projectile_onclick() {
-	const myPlayer = gameState.players[0]
-        const projectile = {
-            x: myPlayer.x, y: myPlayer.y,
-            vx: 0, vy: 0
-        }
-
         switch (myPlayer.rotation) {
             case FACING_DOWN: 
                 projectile.vy = PROJECTILE_SPEED
