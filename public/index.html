@@ -225,11 +225,13 @@ run_all_time();
 		var text = '';
 		if ( mobile_shooting_joystick.up || mobile_shooting_joystick.down || mobile_shooting_joystick.left || mobile_shooting_joystick.right ) {
 				const myPlayer = gameState.players[0]
+				if (myPlayer.projectiles.length <= 1 ) {
+					break
+				}
 				const projectile = {
 				    x: myPlayer.x, y: myPlayer.y,
 				    vx: 0, vy: 0
 				}
-				console.log(myPlayer.projectiles.length);
 				switch (myPlayer.rotation) {
 				    case FACING_DOWN: 
 					projectile.vy = PROJECTILE_SPEED
