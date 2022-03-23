@@ -134,14 +134,6 @@ function hitTestPlayerVsProjectile (player, projectile) {
     return Math.sqrt(Math.pow(player.x - projectile.x, 2) + Math.pow(player.y - projectile.y, 2)) < (PLAYER_RADIUS + PROJECTILE_RADIUS)
 }
 	
-function wait(ms)
-{
-    var d = new Date();
-    var d2 = null;
-    do { d2 = new Date(); }
-    while(d2-d < ms);
-}
-	
 function logicStep (state) {
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
@@ -240,19 +232,15 @@ run_all_time();
 				switch (myPlayer.rotation) {
 				    case FACING_DOWN: 
 					projectile.vy = PROJECTILE_SPEED
-					wait(4000);
 					break
 				    case FACING_UP:
 					projectile.vy = -PROJECTILE_SPEED
-					wait(4000);
 					break
 				    case FACING_LEFT:
 					projectile.vx = -PROJECTILE_SPEED
-					wait(4000);
 					break
 				    case FACING_RIGHT:
 					projectile.vx = +PROJECTILE_SPEED
-					wait(4000);
 					break
 				}
 				myPlayer.projectiles.push(projectile)
