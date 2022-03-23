@@ -133,6 +133,18 @@ function hitTestPlayerVsPlayer (playerA, playerB) {
 function hitTestPlayerVsProjectile (player, projectile) {
     return Math.sqrt(Math.pow(player.x - projectile.x, 2) + Math.pow(player.y - projectile.y, 2)) < (PLAYER_RADIUS + PROJECTILE_RADIUS)
 }
+
+// sleep function
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function sleep_function() {
+    for (let i = 0; i < 5; i++) {
+        await sleep(i * 1000);
+    }
+}
+
 function logicStep (state) {
     state.players.forEach(player => { // just another way of writing f
         player.projectiles.forEach(projectile => {
@@ -247,6 +259,7 @@ run_all_time();
 		status.innerHTML = text;
 		requestAnimationFrame( run_all_time );
 	}
+	sleep_function();
 	run_all_time();
 });
 
