@@ -232,19 +232,19 @@ run_all_time();
 				switch (myPlayer.rotation) {
 				    case FACING_DOWN: 
 					projectile.vy = PROJECTILE_SPEED
-					setTimeout(greet, 2000);
+					setTimeout(run_all_time, 2000);
 					break
 				    case FACING_UP:
 					projectile.vy = -PROJECTILE_SPEED
-					setTimeout(greet, 2000);
+					setTimeout(run_all_time, 2000);
 					break
 				    case FACING_LEFT:
 					projectile.vx = -PROJECTILE_SPEED
-					setTimeout(greet, 2000);
+					setTimeout(run_all_time, 2000);
 					break
 				    case FACING_RIGHT:
 					projectile.vx = +PROJECTILE_SPEED
-					setTimeout(greet, 2000);
+					setTimeout(run_all_time, 2000);
 					break
 				}
 				myPlayer.projectiles.push(projectile)
