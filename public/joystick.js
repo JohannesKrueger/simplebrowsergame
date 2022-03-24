@@ -20,7 +20,7 @@ function __init_joystick_div()
 }
 var JoyStick = function( attrs ) {
 	this.radius = screen.width / 25 ;
-	this.inner_radius = screen.width / 50;
+	this.inner_radius = screen.width / 30;
 	this.x = attrs.x || 0;
 	this.y = attrs.y || 0;
 	this.mouse_support = attrs.mouse_support || true;
