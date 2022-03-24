@@ -19,7 +19,7 @@ function __init_joystick_div()
 	document.body.appendChild( JOYSTICK_DIV );
 }
 var JoyStick = function( attrs ) {
-	this.radius = attrs.radius || screen.width / 10 ;
+	this.radius = screen.width / 10 ;
 	this.inner_radius = attrs.inner_radius || this.radius / 2;
 	this.x = attrs.x || 0;
 	this.y = attrs.y || 0;
