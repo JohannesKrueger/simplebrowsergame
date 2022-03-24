@@ -1,5 +1,29 @@
 Projektfortschritt:
 
+Projektbeschreibung:
+
+Dieses Projekt wurde angesichts des Informatik Unterrichts Q4 entwickelt. Hierbei war die Zielsetzung, ein einfach gehaltenes Browers Game zu entwickeln, welches sowohl im Single, als auch im Multiplayer spielbar ist.
+
+
+Arbeitseinteitung:
+
+Spieleentwicklung: Johannes K.
+
+Hauptmenuentwickling: Jonas P., Oliver T.
+
+BugFinding: Jonas P., Tim R., Oliver T., Johannes K.
+
+Elementdesgin: Tim R.
+
+BugFixes: Johannes K.
+
+
+Grundlegende Funktionen
+
+
+
+
+
 Erledigt:
 - Steuerung der Spielfigur [W,S,A,D]
 - Spieloberfläche [definiert durch Bidschirmgröße]
