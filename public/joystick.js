@@ -1,6 +1,3 @@
-// author: Willie Lawrence
-// contact: cptx032 arroba gmail dot com
-// based in https://github.com/jeromeetienne/virtualjoystick.js/blob/master/virtualjoystick.js
 var JOYSTICK_DIV = null;
 
 function __init_joystick_div()
