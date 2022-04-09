@@ -36,8 +36,8 @@
 <script>	
 const socket = io()
 const canvas = document.getElementsByTagName('canvas')[0]
-canvas.width = window.innerWidth * 0.99
-canvas.height = window.innerHeight * 0.99
+canvas.width = window.innerWidth * 0.975
+canvas.height = window.innerHeight * 0.975
 const ctx = canvas.getContext('2d')
 // ctx.fillRect(50, 50, 100, 100)
 const keyboardState = {}
@@ -184,10 +184,10 @@ function logicStep (state) {
 	if (screen.width < 1000) {
 		window.addEventListener("load", function(){
 		var joystick = new JoyStick({
-			radius: 80,
+			radius: 100,
 			x: window.innerWidth /10,
 			y: window.innerHeight /1.25,
-			inner_radius: 70
+			inner_radius: 85
 		});
 
 		const myPlayer = state.players[0]
@@ -228,10 +228,10 @@ function logicStep (state) {
 		console.log(screen.width);
 		window.addEventListener("load", function(){
 		var mobile_shooting_joystick = new JoyStick({
-			radius: 80,
+			radius: 100,
 			x: window.innerWidth / 1.1,
 			y: window.innerHeight /1.25,
-			inner_radius: 70
+			inner_radius: 85
 		});
 
 		var status = document.getElementById('status');
