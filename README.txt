@@ -12,12 +12,12 @@ Verwendete Module: Node.js, Express, Socket
 Spielelogic:
 
 - Alle Spieler sind geometrische Funktionen einer Klasse mit spzifischen Eigenschaften (Position, Name, Farbe, etc.)
-- Die Karte ist eine 2 Dimensionale Ebene, auf welche sich die Spieler bewegen können. Diese ist nach außen begrenzt, sodass die Spieler nicht das Spielfeld verlassen   können.
+- Die Karte ist eine 2 Dimensionale Ebene, auf welche sich die Spieler bewegen können. Diese ist nach außen begrenzt, sodass die Spieler nicht das Spielfeld verlassen können.
 - Das Multiplayer Feature gelingt duch die Kombination mit einem Socket Server, welcher die Position der Spieler und die der Projetike handhabt.
 - Die Steuerung wurde sowohl für den Gebrauch am Hand als auch am PC implementiert.
 - Hierfür werden die Tasten w, a, s, d abgerufen bzw. bei Handy die Position der beiden Joysticks
 - Projektile werden automatisch in Schussrichtung (Spielerrichtung) mit einer Geschwindigkeit "abgefeuert"
-- Die Collision der Projektile mit den Spielern lässt sich mittels einer Mathematischen Funktion berechnten, welche jedoch dur die "langsamen" Server der Hosters         meistens leider nur unzureichend funktioniert. Bei einem korrekt registierten Treffer, wird der jeweilige Spieler elimieniert und vom Spielfeld entfernt.
+- Die Collision der Projektile mit den Spielern lässt sich mittels einer Mathematischen Funktion berechnten, welche jedoch dur die "langsamen" Server der Hosters meistens leider nur unzureichend funktioniert. Bei einem korrekt registierten Treffer, wird der jeweilige Spieler elimieniert und vom Spielfeld entfernt.
 
 Development Team:
 
